@@ -1,8 +1,8 @@
 import { AxiosResponse } from 'axios';
-import Client from '@src/apis/client';
+import Client from 'apis/client';
 
-import { now } from '@src/utils/day';
-import type { AddPostRequest } from '@src/interface/posts';
+import { now } from 'utils/day';
+import type { AddPostRequest } from 'interface/posts';
 
 const service = {
   async getPostList(page: number = 1, limit: number = 10) {

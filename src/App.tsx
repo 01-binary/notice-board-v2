@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import LayoutPage from '@src/pages/layout';
-import PostPage from '@src/pages/post';
+import LayoutPage from 'pages/layout';
+import PostPage from 'pages/post';
 
 const App = () => {
   return (

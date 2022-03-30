@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { ButtonSize } from '@src/assets/constants';
+import { ButtonSize } from 'assets/constants';
 
 interface Props {
   size: keyof typeof ButtonSize;

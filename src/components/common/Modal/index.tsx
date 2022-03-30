@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import Portal from '@src/components/common/Portal';
+import Portal from 'components/common/Portal';
 import * as S from './style';
 
 type Props = {

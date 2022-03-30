@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import * as S from './style';
-import { ButtonSize } from '@src/assets/constants';
+import { ButtonSize } from 'assets/constants';
 
 type ButtonProps = {
   children: string;
@@ -8,7 +8,11 @@ type ButtonProps = {
   onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
 };
 
-const Button: FC<ButtonProps> = ({ children, size = ButtonSize.medium, onClick }) => {
+const Button: FC<ButtonProps> = ({
+  children,
+  size = ButtonSize.medium,
+  onClick,
+}) => {
   return (
     <S.Button size={size} onClick={onClick}>
       {children}

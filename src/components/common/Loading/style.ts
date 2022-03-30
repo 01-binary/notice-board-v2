@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Logo from '@src/components/common/Logo';
+import Logo from 'components/common/Logo';
 
 interface ContainerProps {
   height: string;

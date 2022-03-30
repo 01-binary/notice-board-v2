@@ -6,12 +6,7 @@
       "dom.iterable",
       "esnext"
     ],
-    "baseUrl": ".", // 비상대적 import 모듈 해석시 기준이 되는 경로
-    "paths": {
-      "@src/*": [
-        "src/*"
-      ]
-    },
+    "baseUrl": "src", // 비상대적 import 모듈 해석시 기준이 되는 경로
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,

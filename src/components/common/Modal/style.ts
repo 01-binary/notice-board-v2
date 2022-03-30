@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { mediaQueries } from '@src/styles';
 
 type Props = {
   visible: boolean;
@@ -34,9 +33,6 @@ export const InnerContainer = styled.div`
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5);
   background-color: #fff;
   border-radius: 10px;
-  ${mediaQueries('sm')`
-    width: 90%;
-    `};
   width: 550px;
 
   max-height: 500px;

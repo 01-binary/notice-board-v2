@@ -1,1 +1,1 @@
-export { default as service } from '@src/apis/service';
+export { default as service } from 'apis/service';

@@ -1,18 +1,16 @@
 import { FC } from 'react';
-import Section from '@src/components/common/Layout/Section';
+import Section from 'components/common/Layout/Section';
 
 // import Tool from '@src/components/post/Tool';
 // import Content from '@src/components/post/Content';
 
-import * as S from './style';
-
 const PostPage: FC = () => {
   return (
     <Section>
-      <S.Container>
+      <div className="flex flex-col mt-8 px-4">
         {/* <Tool /> */}
         {/* <Content /> */}
-      </S.Container>
+      </div>
     </Section>
   );
 };

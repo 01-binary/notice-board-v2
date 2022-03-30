@@ -1,13 +1,12 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 
-import { FOOTER_MESSAGE } from '@src/assets/string';
-import * as S from './style';
+import { FOOTER_MESSAGE } from 'assets/string';
 
 const Footer: FC = () => {
   return (
-    <S.Wrapper>
+    <footer className="flex items-center justify-center text-gray-300 shadow-footer h-[10%]">
       {FOOTER_MESSAGE}
-    </S.Wrapper>
+    </footer>
   );
 };
 

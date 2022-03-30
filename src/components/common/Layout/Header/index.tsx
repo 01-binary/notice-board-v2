@@ -1,12 +1,11 @@
-import React, { FC } from 'react';
-import Logo from '@src/components/common/Logo';
-import * as S from './style';
+import { FC } from 'react';
+import Logo from 'components/common/Logo';
 
 const Header: FC = () => {
   return (
-    <S.Container>
+    <header className="flex items-center px-12  h-[10%]">
       <Logo />
-    </S.Container>
+    </header>
   );
 };
 

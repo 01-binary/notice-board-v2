@@ -1,6 +1,9 @@
-import { createGlobalStyle } from 'styled-components';
+/* rest of app styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-const GlobalStyle = createGlobalStyle`
+@layer base {
   html,
   body,
   #root,
@@ -12,5 +15,4 @@ const GlobalStyle = createGlobalStyle`
     margin: 0 auto;
     padding: 0;
   }
-`;
-export default GlobalStyle;
+}
