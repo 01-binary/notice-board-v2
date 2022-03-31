@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import Portal from 'components/common/Portal';
-import * as S from './style';
 
 type Props = {
   children: React.ReactNode;
@@ -11,15 +10,32 @@ type Props = {
 const Modal: FC<Props> = ({ visible, children, closeModal }) => {
   return (
     <Portal elementId="modal">
-      <S.Overlay visible={visible} />
-      <S.Wrapper tabIndex={-1} visible={visible}>
-        <S.InnerContainer tabIndex={0}>
-          <S.ButtonWrapper>
-            <S.CloseButton onClick={closeModal}>&times;</S.CloseButton>
-          </S.ButtonWrapper>
+      <div
+        className={`fixed inset-0 z-[999] bg-[#00000099] ${
+          visible ? `block` : `hidden`
+        }`}
+      />
+      <div
+        tabIndex={-1}
+        className={`fixed inset-0 z-[1000] outline-0 overflow-auto ${
+          visible ? `block` : `hidden`
+        }`}
+      >
+        <div
+          tabIndex={0}
+          className={`flex relative p-4 mx-auto overflow-y-auto bg-white rounded-[10px] flex-col w-[550px] max-h-[500px] top-[20%]`}
+        >
+          <div className="flex justify-end">
+            <div
+              className="cursor-pointer font-bold text-3xl text-black"
+              onClick={closeModal}
+            >
+              &times;
+            </div>
+          </div>
           {children}
-        </S.InnerContainer>
-      </S.Wrapper>
+        </div>
+      </div>
     </Portal>
   );
 };

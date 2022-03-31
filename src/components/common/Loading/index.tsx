@@ -1,5 +1,6 @@
 import { FC } from 'react';
-import * as S from './style';
+
+import Logo from 'components/common/Logo';
 
 interface Props {
   height?: string;
@@ -7,9 +8,9 @@ interface Props {
 
 const Loading: FC<Props> = ({ height = '150px' }) => {
   return (
-    <S.Container height={height}>
-      <S.Spinner />
-    </S.Container>
+    <div className={`flex items-center justify-center`} style={{ height }}>
+      <Logo className="animate-spinner origin-[50%_50%]" />
+    </div>
   );
 };
 

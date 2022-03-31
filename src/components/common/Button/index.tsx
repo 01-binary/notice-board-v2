@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import * as S from './style';
 import { ButtonSize } from 'assets/constants';
 
 type ButtonProps = {
@@ -14,9 +13,18 @@ const Button: FC<ButtonProps> = ({
   onClick,
 }) => {
   return (
-    <S.Button size={size} onClick={onClick}>
+    <button
+      className={`inline-flex items-center justify-center outline-0 border-0 rounded-[16px] font-bold p-4 bg-[#f0f1ff] hover:bg-[antiquewhite] cursor-pointer ${
+        size === ButtonSize.large
+          ? 'h-[3rem] text-xl'
+          : size === ButtonSize.medium
+          ? 'h-[2.25rem] text-base'
+          : 'h-[1.75rem] text-sm'
+      }`}
+      onClick={onClick}
+    >
       {children}
-    </S.Button>
+    </button>
   );
 };
 

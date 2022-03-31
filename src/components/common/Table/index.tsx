@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import * as S from './style';
 
 interface Column {
   title: string;
@@ -20,20 +19,36 @@ const Table: FC<Props> = ({ data, columns, onClick }) => {
           <tr>
             {columns.map((column) => {
               const { title, key } = column;
-              return <S.TH key={key}>{title}</S.TH>;
+              return (
+                <th
+                  className="font-bold text-center bg-[aliceblue] border-b border-solid border-[rgba(0, 0, 0, 0.06)] py-[16px] px-[24px]"
+                  key={key}
+                >
+                  {title}
+                </th>
+              );
             })}
           </tr>
         </thead>
         <tbody>
           {data.map((value: any, index: number) => {
             return (
-              <S.HoverableTR key={index} onClick={onClick}>
+              <tr
+                className="cursor-pointer hover:bg-[azure]"
+                key={index}
+                onClick={onClick}
+              >
                 {Object.values(value).map((content, innerIndex) => {
                   return (
-                    <S.TD key={`${index}_${innerIndex}`}>{content as string}</S.TD>
+                    <td
+                      className="font-medium text-center border-b border-solid border-[rgba(0, 0, 0, 0.06)] py-[16px] px-[24px]"
+                      key={`${index}_${innerIndex}`}
+                    >
+                      {content as string}
+                    </td>
                   );
                 })}
-              </S.HoverableTR>
+              </tr>
             );
           })}
         </tbody>
