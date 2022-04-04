@@ -1,6 +1,6 @@
-import posts from './posts';
+import postsStore from './posts';
 
 const useStore = () => {
-  return { posts };
+  return { postsStore };
 };
 export default useStore;

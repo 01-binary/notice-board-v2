@@ -7,13 +7,14 @@ import {
   SelectedPostState,
   AddPostState,
   Post,
+  AddPostRequest,
 } from 'interface/posts';
 
 class Posts {
   posts: PostsState = {
     loading: false,
     data: [],
-    total: null,
+    total: 0,
     error: null,
   };
   selectedPost: SelectedPostState = {
@@ -21,7 +22,7 @@ class Posts {
     data: null,
     error: null,
   };
-  addPostState: AddPostState = {
+  addedPost: AddPostState = {
     loading: false,
     error: null,
   };
@@ -31,9 +32,11 @@ class Posts {
     makeObservable(this, {
       posts: observable,
       selectedPost: observable,
-      addPostState: observable,
+      addedPost: observable,
       page: observable,
       getPosts: flow,
+      getSelectedPost: flow,
+      addPost: flow,
     });
   }
 
@@ -53,6 +56,40 @@ class Posts {
       this.posts.error = { data, status };
     } finally {
       this.posts.loading = false;
+    }
+  }
+
+  *getSelectedPost(id: number) {
+    this.selectedPost.loading = true;
+    try {
+      const { data }: AxiosResponse<Post> =
+        yield service.getPostDetailInformation(id);
+      this.selectedPost.data = data;
+    } catch ({ response }) {
+      const { data, status } = response as AxiosResponse;
+      this.selectedPost.error = { data, status };
+    } finally {
+      this.selectedPost.loading = false;
+    }
+  }
+
+  *addPost(payload: { addPostRequest: AddPostRequest; onSuccess: () => void }) {
+    this.addedPost.loading = true;
+    const { addPostRequest, onSuccess } = payload;
+    try {
+      const { data }: AxiosResponse<Post> = yield service.addPost(
+        addPostRequest,
+      );
+    } catch ({ response }) {
+      const { data, status } = response as AxiosResponse;
+      this.addedPost.error = { data, status };
+    } finally {
+      this.addedPost.loading = false;
+      if (this.page !== 1) {
+        this.posts.data = [];
+        this.page = 1;
+      }
+      onSuccess();
     }
   }
 }

@@ -5,25 +5,28 @@ import Modal from 'components/common/Modal';
 import Loading from 'components/common/Loading';
 
 import { useModalData } from 'hooks';
+import useTool from './hook';
 
 import { ADD_POST, TITLE, CONTENT, AUTHOR, TOTAL } from 'assets/string';
 import type { AddPostRequest, AddPostInput } from 'interface/posts';
 
 const Tool: FC = () => {
   const { isModalVisible, showModal, closeModal } = useModalData();
-  // const { addPost, addPostLoading } = useAddPostFetch();
-  const addPostLoading = false;
-  // const { total } = usePostsData();
+  const { addPost, addPostLoading, total } = useTool();
   const [formState, SetFormState] = useState<AddPostRequest>({
     title: '',
     author: '',
     content: '',
   });
 
-  const handleSubmit = useCallback((event) => {
-    event.preventDefault();
-    // addPost({ addPostRequest: { ...formState }, onSuccess: closeModal });
-  }, []);
+  const handleSubmit = useCallback(
+    (event) => {
+      event.preventDefault();
+      addPost({ addPostRequest: { ...formState }, onSuccess: closeModal });
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [formState],
+  );
 
   const handleChange = (input: AddPostInput) => (event: any) => {
     switch (input) {
@@ -44,7 +47,7 @@ const Tool: FC = () => {
   return (
     <>
       <div className="flex justify-between items-center mb-8">
-        <div className="text-lg font-medium">{`${TOTAL} ${0}개`}</div>
+        <div className="text-lg font-medium">{`${TOTAL} ${total}개`}</div>
         <Button
           size={'medium'}
           onClick={() => {

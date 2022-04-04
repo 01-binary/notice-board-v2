@@ -4,39 +4,44 @@ import Table from 'components/common/Table';
 import Loading from 'components/common/Loading';
 import Modal from 'components/common/Modal';
 
+import useContent from './hook';
+
 import { TITLE, AUTHOR } from 'assets/string';
 import { postColumn } from 'assets/columns';
 import { useIntersectionObserver, useModalData } from 'hooks';
 
 const Content: FC = () => {
   const { isModalVisible, showModal, closeModal } = useModalData();
-  // const { postsLoading, setPage } = usePostsFetch();
-  // const { addPostLoading } = useAddPostFetch();
-  // const { posts, isNeedMoreFetch } = usePostsData();
-  const isNeedMoreFetch = true;
-  const selectedPostLoading = false;
-  // const { getSelectedPost, selectedPostLoading, selectedPost } =
-  //   useSelectedPostFetch();
+  const {
+    setPage,
+    getSelectedPost,
+    posts,
+    selectedPost,
+    isNeedMoreFetch,
+    postsLoading,
+    addPostLoading,
+    selectedPostLoading,
+  } = useContent();
 
   const { setTarget } = useIntersectionObserver({
     onIntersect: ([{ isIntersecting }]) => {
-      // if (isIntersecting && !addPostLoading && !postsLoading) {
-      //   setPage();
-      // }
+      if (isIntersecting && !addPostLoading && !postsLoading) {
+        setPage();
+      }
     },
   });
 
   return (
     <>
       <Table
-        data={[]}
+        data={posts}
         columns={postColumn}
         onClick={(event) => {
           if (
             typeof event.currentTarget.rowIndex === 'number' &&
             event.currentTarget.rowIndex > 0
           ) {
-            // getSelectedPost(event.currentTarget.rowIndex);
+            getSelectedPost(event.currentTarget.rowIndex);
             showModal();
           }
         }}
@@ -54,15 +59,10 @@ const Content: FC = () => {
           <Loading />
         ) : (
           <div className="flex flex-col mt-8 mt-4 mb-0 gap-2">
-            <div className="font-bold text-xl"></div>
-            <div className="flex justify-end font-medium"></div>
-            <div className="my-4 mx-0"></div>
-            <div className="flex justify-center decoration-gray-500"></div>
-
-            {/* <S.TitleWrapper>{`${TITLE} ${selectedPost?.title}`}</S.TitleWrapper> */}
-            {/* <S.AuthorWrapper>{`${AUTHOR} ${selectedPost?.author}`}</S.AuthorWrapper> */}
-            {/* <S.ContentWrapper>{`${selectedPost?.content}`}</S.ContentWrapper> */}
-            {/* <S.CreatedAtWrapper>{`${selectedPost?.createdAt}`}</S.CreatedAtWrapper> */}
+            <div className="font-bold text-xl">{`${TITLE} ${selectedPost?.title}`}</div>
+            <div className="flex justify-end font-medium">{`${AUTHOR} ${selectedPost?.author}`}</div>
+            <div className="my-4 mx-0">{`${selectedPost?.content}`}</div>
+            <div className="flex justify-center decoration-gray-200">{`${selectedPost?.createdAt}`}</div>
           </div>
         )}
       </Modal>
