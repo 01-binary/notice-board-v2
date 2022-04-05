@@ -4,11 +4,11 @@ import Table from 'components/common/Table';
 import Loading from 'components/common/Loading';
 import Modal from 'components/common/Modal';
 
+import { useIntersectionObserver, useModalData } from 'hooks';
 import useContent from './hook';
 
 import { TITLE, AUTHOR } from 'assets/string';
 import { postColumn } from 'assets/columns';
-import { useIntersectionObserver, useModalData } from 'hooks';
 
 const Content: FC = () => {
   const { isModalVisible, showModal, closeModal } = useModalData();
