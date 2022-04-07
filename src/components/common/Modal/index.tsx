@@ -27,7 +27,7 @@ const Modal: FC<Props> = ({ visible, children, closeModal }) => {
         >
           <div className="flex justify-end">
             <div
-              className="cursor-pointer font-bold text-3xl text-black"
+              className="text-3xl font-bold text-black cursor-pointer"
               onClick={closeModal}
             >
               &times;

@@ -63,13 +63,13 @@ const Tool: FC = () => {
         ) : (
           <>
             <form
-              className="flex flex-col m-4 font-medium gap-8"
+              className="flex flex-col gap-8 m-4 font-medium"
               onSubmit={handleSubmit}
             >
               <div className="flex items-center">
                 <label className="inline-block w-[20%]">{TITLE}</label>
                 <input
-                  className="border-0 w-[70%] border-b border-solid border-[lightgrey] focus:outline-0 focus:border-[blueviolet]"
+                  className="w-[70%] border-0 border-b border-[lightgrey] focus:border-[blueviolet] border-solid focus:outline-0"
                   type="text"
                   value={formState.title}
                   onChange={handleChange('title')}
@@ -80,7 +80,7 @@ const Tool: FC = () => {
               <div className="flex items-center">
                 <label className="inline-block w-[20%]">{CONTENT}</label>
                 <textarea
-                  className="border-0 w-[70%] border-b border-solid border-[lightgrey] focus:outline-0 focus:border-[blueviolet]"
+                  className="w-[70%] border-0 border-b border-[lightgrey] focus:border-[blueviolet] border-solid focus:outline-0"
                   rows={1}
                   value={formState.content}
                   onChange={handleChange('content')}
@@ -91,7 +91,7 @@ const Tool: FC = () => {
               <div className="flex items-center">
                 <label className="inline-block w-[20%]">{AUTHOR}</label>
                 <input
-                  className="border-0 w-[70%] border-b border-solid border-[lightgrey] focus:outline-0 focus:border-[blueviolet]"
+                  className="w-[70%] border-0 border-b border-[lightgrey] focus:border-[blueviolet] border-solid focus:outline-0"
                   type="text"
                   value={formState.author}
                   onChange={handleChange('author')}
@@ -100,7 +100,7 @@ const Tool: FC = () => {
               </div>
               <div className="flex justify-end mt-8">
                 <input
-                  className="border-0 font-bold cursor-pointer bg-[aliceblue] py-2 px-4 rounded-[5px] text-sm"
+                  className="py-2 px-4 text-sm font-bold bg-[aliceblue] rounded-[5px] border-0 cursor-pointer"
                   type="submit"
                   value={ADD_POST}
                 />

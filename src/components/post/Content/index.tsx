@@ -58,8 +58,8 @@ const Content: FC = () => {
         {selectedPostLoading ? (
           <Loading />
         ) : (
-          <div className="flex flex-col mt-8 mx-4 mb-0 gap-2">
-            <div className="font-bold text-xl">{`${TITLE} ${selectedPost?.title}`}</div>
+          <div className="flex flex-col gap-2 mx-4 mt-8 mb-0">
+            <div className="text-xl font-bold">{`${TITLE} ${selectedPost?.title}`}</div>
             <div className="flex justify-end font-medium">{`${AUTHOR} ${selectedPost?.author}`}</div>
             <div className="my-4 mx-0">{`${selectedPost?.content}`}</div>
             <div className="flex justify-center text-slate-200">{`${selectedPost?.createdAt}`}</div>

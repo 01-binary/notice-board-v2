@@ -21,7 +21,7 @@ const Table: FC<Props> = ({ data, columns, onClick }) => {
               const { title, key } = column;
               return (
                 <th
-                  className="font-bold text-center bg-[aliceblue] border-b border-solid border-[rgba(0, 0, 0, 0.06)] py-[16px] px-[24px]"
+                  className="py-[16px] px-[24px] font-bold text-center bg-[aliceblue] border-b border-solid"
                   key={key}
                 >
                   {title}
@@ -34,14 +34,14 @@ const Table: FC<Props> = ({ data, columns, onClick }) => {
           {data.map((value: any, index: number) => {
             return (
               <tr
-                className="cursor-pointer hover:bg-[azure]"
+                className="hover:bg-[azure] cursor-pointer"
                 key={index}
                 onClick={onClick}
               >
                 {Object.values(value).map((content, innerIndex) => {
                   return (
                     <td
-                      className="font-medium text-center border-b border-solid border-[rgba(0, 0, 0, 0.06)] py-[16px] px-[24px]"
+                      className="py-[16px] px-[24px] font-medium text-center border-b border-solid"
                       key={`${index}_${innerIndex}`}
                     >
                       {content as string}

@@ -27,11 +27,15 @@
     "extends": [
       "react-app",
       "react-app/jest",
-      "plugin:prettier/recommended"
+      "plugin:prettier/recommended",
+      "plugin:tailwindcss/recommended"
     ],
     "rules": {
       "prettier/prettier": "warn"
-    }
+    },
+    "plugins": [
+      "tailwindcss"
+    ]
   },
   "browserslist": {
     "production": [
@@ -49,6 +53,7 @@
     "autoprefixer": "^10.4.4",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-tailwindcss": "^3.5.0",
     "json-server": "^0.17.0",
     "postcss": "^8.4.12",
     "prettier": "^2.6.1",

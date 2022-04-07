@@ -7,7 +7,7 @@ import Loading from 'components/common/Loading';
 
 const LayoutPage: FC = () => {
   return (
-    <div className="relative h-full !bg-white max-w-7xl mx-auto">
+    <div className="relative mx-auto max-w-7xl h-full !bg-white">
       <Header />
       <Suspense fallback={<Loading />}>
         <Outlet />
